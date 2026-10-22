@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hướng dẫn / Mô tả trò chơi</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        color: #1f2937;
+      }
+      nav {
+        background: #1d4ed8;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 20px;
+        font-weight: bold;
+      }
+      nav a:hover,
+      nav a.active {
+        background: #1e40af;
+      }
+      main {
+        max-width: 760px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 24px 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        line-height: 1.6;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      h2 {
+        color: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="./trangchu.html" class="active">Trang chủ</a>
+      <a href="./241A290022_bt28a.html">Bài tập 28b</a>
+      <a href="./huongdan.html">Hướng dẫn / Mô tả trò chơi</a>
+    </nav>
+
+    <main>
+      <h1>Game kiểm tra tốc độ phản xạ</h1>
+
+      <h2>Mô tả</h2>
+      <p>
+        Trò chơi kiểm tra tốc độ phản xạ click chuột. Các mục tiêu xuất hiện
+        ngẫu nhiên trong khu vực chơi, người chơi phải click nhanh để ghi điểm
+        trước khi hết giờ hoặc hết mạng.
+      </p>
+
+      <h2>Cách chơi</h2>
+      <ol>
+        <li>
+          Nhập thời gian chơi (giây) vào ô thời gian, sau đó bấm
+          <b>Bắt đầu trò chơi</b>.
+        </li>
+        <li>Click vào các mục tiêu xuất hiện trong khu vực chơi.</li>
+        <li>Bấm <b>Đổi màu nền</b> để đổi màu nền khu vực chơi ngẫu nhiên.</li>
+        <li>Bấm <b>Người chơi</b> để hiển thị mã sinh viên.</li>
+        <li>
+          Trò chơi kết thúc khi hết giờ hoặc hết 3 mạng, tổng điểm được hiển
+          thị.
+        </li>
+      </ol>
+
+      <h2>Các loại mục tiêu</h2>
+      <ul>
+        <li><b>Xanh:</b> +1 điểm.</li>
+        <li><b>Đỏ (bẫy):</b> -2 điểm và mất 1 mạng.</li>
+        <li>
+          <b>Vàng:</b> chỉ tồn tại ngắn, click được +3 điểm và +2 giây; bỏ lỡ sẽ
+          mất 1 mạng.
+        </li>
+      </ul>
+
+      <h2>Quy tắc khác</h2>
+      <ul>
+        <li>
+          Cứ mỗi 10 điểm lên 1 cấp độ, mục tiêu xuất hiện nhanh hơn và biến mất
+          sớm hơn 15%.
+        </li>
+        <li>
+          Click liên tục vào một vị trí trống sẽ bị trừ 1 điểm và khóa thao tác
+          0.5 giây.
+        </li>
+        <li>Điểm cao nhất được lưu trên trình duyệt.</li>
+      </ul>
+    </main>
+  </body>
+</html>

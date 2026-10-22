@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập 28 - Game kiểm tra tốc độ</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .info {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      #arena {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        margin: 0 auto 15px;
+        background: #dbeafe;
+        border: 3px solid #2563eb;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      #target {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #ef4444;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+      }
+
+      #btnStart {
+        padding: 10px 24px;
+        font-size: 18px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      #btnStart:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+      }
+
+      #result {
+        margin-top: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #16a34a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Game kiểm tra tốc độ</h1>
+
+    <div class="info">
+      <div>Điểm: <span id="score">0</span></div>
+      <div>Thời gian: <span id="time">30</span>s</div>
+    </div>
+
+    <div id="arena">
+      <div id="target"></div>
+    </div>
+
+    <button id="btnStart">Bắt đầu trò chơi</button>
+    <div id="result"></div>
+
+    <script>
+      const arena = document.getElementById("arena");
+      const target = document.getElementById("target");
+      const scoreEl = document.getElementById("score");
+      const timeEl = document.getElementById("time");
+      const btnStart = document.getElementById("btnStart");
+      const resultEl = document.getElementById("result");
+
+      const GAME_TIME = 30;
+      const MOVE_INTERVAL = 1000;
+
+      let score = 0;
+      let timeLeft = GAME_TIME;
+      let isPlaying = false;
+      let countdownTimer = null;
+      let moveTimer = null;
+
+      function moveTarget() {
+        const maxLeft = arena.clientWidth - target.offsetWidth;
+        const maxTop = arena.clientHeight - target.offsetHeight;
+        target.style.left = Math.floor(Math.random() * (maxLeft + 1)) + "px";
+        target.style.top = Math.floor(Math.random() * (maxTop + 1)) + "px";
+      }
+
+      function respawnTarget() {
+        moveTarget();
+        clearInterval(moveTimer);
+        moveTimer = setInterval(moveTarget, MOVE_INTERVAL);
+      }
+
+      function startGame() {
+        score = 0;
+        timeLeft = GAME_TIME;
+        isPlaying = true;
+        scoreEl.textContent = score;
+        timeEl.textContent = timeLeft;
+        resultEl.textContent = "";
+        btnStart.disabled = true;
+        target.style.display = "block";
+
+        respawnTarget();
+
+        countdownTimer = setInterval(function () {
+          timeLeft--;
+          timeEl.textContent = timeLeft;
+          if (timeLeft <= 0) {
+            endGame();
+          }
+        }, 1000);
+      }
+
+      function endGame() {
+        isPlaying = false;
+        clearInterval(countdownTimer);
+        clearInterval(moveTimer);
+        target.style.display = "none";
+        btnStart.disabled = false;
+        btnStart.textContent = "Chơi lại";
+        resultEl.textContent = "Hết giờ! Tổng điểm của bạn: " + score;
+      }
+
+      target.addEventListener("click", function () {
+        if (!isPlaying) return;
+        score++;
+        scoreEl.textContent = score;
+        respawnTarget();
+      });
+
+      btnStart.addEventListener("click", startGame);
+    </script>
+  </body>
+</html>

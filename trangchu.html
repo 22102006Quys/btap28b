@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ - Trần Phú Quý</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        color: #1f2937;
+      }
+      nav {
+        background: #1d4ed8;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 14px 20px;
+        font-weight: bold;
+      }
+      nav a:hover,
+      nav a.active {
+        background: #1e40af;
+      }
+      .card {
+        max-width: 480px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        padding: 30px;
+        text-align: center;
+      }
+      .card img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #2563eb;
+      }
+      .card h1 {
+        margin: 18px 0 8px;
+        font-size: 28px;
+      }
+      .card p {
+        margin: 6px 0;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="./trangchu.html" class="active">Trang chủ</a>
+      <a href="huongdan.html">Hướng dẫn / Mô tả trò chơi</a>
+
+      <a href="./28.html">Bài tập 28</a>
+      <a href="./28a.html">Bài tập 28a</a>
+      <a href="./241A290022_bt28a.html">Bài tập 28b</a>
+    </nav>
+
+    <div class="card">
+      <img
+        src="avatar.jpg"
+        alt="Ảnh của Trần Phú Quý"
+        onerror="
+          this.onerror = null;
+          this.src =
+            'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22><rect width=%22180%22 height=%22180%22 fill=%22%23dbeafe%22/><text x=%2290%22 y=%22110%22 font-size=%2272%22 text-anchor=%22middle%22 fill=%22%232563eb%22>Q</text></svg>';
+        "
+      />
+      <h1>Trần Phú Quý</h1>
+      <p>Mã số sinh viên: <b>241A290022</b></p>
+      <p>Ngành Khoa học máy tính</p>
+      <p>Trường Đại học Văn Hiến</p>
+    </div>
+  </body>
+</html>
